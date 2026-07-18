@@ -1,12 +1,12 @@
 # 📊 Financial Dashboard API
 
-API REST desenvolvida com **FastAPI** para gerenciamento e análise de transações financeiras.
+A REST API built with **FastAPI** for managing and analyzing financial transactions.
 
-A aplicação realiza a importação de dados por meio de arquivos CSV, armazena as informações em um banco de dados MySQL e disponibiliza indicadores consolidados para consumo por dashboards, ferramentas de Business Intelligence (BI) ou outras aplicações.
+The application imports transaction data from CSV files, stores it in a MySQL database, and provides summarized financial information for dashboards, Business Intelligence (BI) tools, or other applications.
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Technologies
 
 - Python 3.13
 - FastAPI
@@ -18,21 +18,21 @@ A aplicação realiza a importação de dados por meio de arquivos CSV, armazena
 
 ---
 
-## 📌 Funcionalidades
+## 📌 Features
 
-- Importação de transações via CSV
-- CRUD completo de transações
-- Resumo financeiro
-  - Total de receitas
-  - Total de despesas
-  - Saldo
-- Estatísticas por categoria
-- Persistência em banco de dados MySQL
-- API preparada para integração com dashboards e ferramentas de BI
+- Import financial transactions from CSV files
+- Full CRUD operations
+- Financial summary
+  - Total income
+  - Total expenses
+  - Current balance
+- Statistics grouped by category
+- MySQL data persistence
+- Ready for integration with dashboards and BI tools
 
 ---
 
-## 📂 Estrutura do projeto
+## 📂 Project Structure
 
 ```text
 backend/
@@ -54,45 +54,45 @@ backend/
 
 ---
 
-## 📈 Fluxo da aplicação
+## 📈 Application Flow
 
 ```text
-Arquivo CSV
-      │
-      ▼
-Importação dos dados
-      │
-      ▼
-Tratamento e validação
-      │
-      ▼
-Banco de dados MySQL
-      │
-      ▼
-API FastAPI
-      │
-      ▼
-Resumo financeiro e estatísticas
-      │
-      ▼
-Dashboards / Business Intelligence
+CSV File
+    │
+    ▼
+Data Import
+    │
+    ▼
+Data Processing
+    │
+    ▼
+MySQL Database
+    │
+    ▼
+FastAPI
+    │
+    ▼
+Financial Summary & Statistics
+    │
+    ▼
+Dashboard / Business Intelligence
 ```
 
 ---
 
-## 📡 Endpoints
+## 📡 API Endpoints
 
-### Importar CSV
+### Import CSV
 
 ```http
 POST /transacoes/importar_csv
 ```
 
-Importa um arquivo CSV contendo as transações financeiras.
+Uploads and imports financial transactions from a CSV file.
 
 ---
 
-### Listar transações
+### List Transactions
 
 ```http
 GET /transacoes
@@ -100,7 +100,7 @@ GET /transacoes
 
 ---
 
-### Buscar transação
+### Get Transaction
 
 ```http
 GET /transacoes/{id}
@@ -108,7 +108,7 @@ GET /transacoes/{id}
 
 ---
 
-### Criar transação
+### Create Transaction
 
 ```http
 POST /transacoes
@@ -116,7 +116,7 @@ POST /transacoes
 
 ---
 
-### Atualizar transação
+### Update Transaction
 
 ```http
 PUT /transacoes/{id}
@@ -124,7 +124,7 @@ PUT /transacoes/{id}
 
 ---
 
-### Remover transação
+### Delete Transaction
 
 ```http
 DELETE /transacoes/{id}
@@ -132,51 +132,53 @@ DELETE /transacoes/{id}
 
 ---
 
-### Resumo financeiro
+### Financial Summary
 
 ```http
 GET /transacoes/resumo
 ```
 
-Exemplo de resposta:
+Example response:
 
 ```json
 {
-  "receitas": 8500,
-  "despesas": 4200,
-  "saldo": 4300
+    "receitas": 8500,
+    "despesas": 4200,
+    "saldo": 4300
 }
 ```
 
 ---
 
-### Estatísticas por categoria
+### Category Statistics
 
 ```http
 GET /transacoes/estatisticas
 ```
 
-Exemplo de resposta:
+Example response:
 
 ```json
 {
-  "estatisticas": {
-    "Alimentação": 950,
-    "Transporte": 520,
-    "Moradia": 1800
-  }
+    "estatisticas": {
+        "Food": 950,
+        "Transportation": 520,
+        "Housing": 1800
+    }
 }
 ```
 
 ---
 
-## 🐳 Executando com Docker
+## 🐳 Running with Docker
+
+Build and start the containers:
 
 ```bash
 docker compose up --build
 ```
 
-A aplicação ficará disponível em:
+The API will be available at:
 
 ```text
 http://localhost:8000
@@ -184,15 +186,15 @@ http://localhost:8000
 
 ---
 
-## 💻 Executando localmente
+## 💻 Running Locally
 
-Instale as dependências:
+Install the dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Inicie a API:
+Start the application:
 
 ```bash
 uvicorn app.main:app --reload
@@ -200,36 +202,36 @@ uvicorn app.main:app --reload
 
 ---
 
-## 🎯 Sobre o projeto
+## 🎯 About the Project
 
-Este projeto foi desenvolvido para oferecer uma solução simples de gerenciamento e análise de dados financeiros.
+Financial Dashboard API was developed to provide a simple solution for storing and analyzing financial data.
 
-A API permite importar transações por meio de arquivos CSV, armazenar os dados em um banco relacional e disponibilizar informações consolidadas, como resumo financeiro e estatísticas por categoria, facilitando a integração com dashboards e ferramentas de Business Intelligence.
+The application imports transactions from CSV files, stores them in a relational database, and exposes summarized financial information such as income, expenses, balance, and category statistics through a REST API.
 
-Durante o desenvolvimento foram aplicados conceitos de:
+This project demonstrates practical knowledge of:
 
-- Desenvolvimento de APIs REST com FastAPI;
-- Modelagem de banco de dados relacional;
-- SQLAlchemy ORM;
-- Importação e tratamento de dados;
-- Operações CRUD;
-- Consultas agregadas;
-- Containerização com Docker.
-
----
-
-## 🔮 Melhorias futuras
-
-- Autenticação com JWT
-- Paginação e filtros
-- Testes automatizados
-- Dashboard web para visualização dos indicadores
-- Deploy em ambiente de produção
-- Documentação mais detalhada da API
+- REST API development with FastAPI
+- SQLAlchemy ORM
+- Relational database modeling
+- CSV data import and processing
+- CRUD operations
+- Aggregate SQL queries
+- Docker containerization
 
 ---
 
-## 👨‍💻 Autor
+## 🔮 Future Improvements
+
+- JWT Authentication
+- Pagination and filtering
+- Automated tests
+- Web dashboard
+- Cloud deployment
+- Complete API documentation
+
+---
+
+## 👨‍💻 Author
 
 **João Pedro Colares Kretli**
 
